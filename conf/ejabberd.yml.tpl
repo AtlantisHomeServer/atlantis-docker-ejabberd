@@ -93,6 +93,12 @@ listen:
     tls: true
     certfile: "/opt/ejabberd/ssl/host.pem"
     {% endif %}
+  -
+    port: 5281
+    module: ejabberd_http
+    request_handlers:
+      "/oauth": ejabberd_oauth
+      "/api": mod_http_api
 
 
 ###   SERVER TO SERVER
@@ -393,6 +399,7 @@ modules:
     {% endif %}
   mod_http_upload_quota:
     max_days: 10
+  mod_admin_extra: {}
 
 ###   ============
 ###   HOST CONFIG
