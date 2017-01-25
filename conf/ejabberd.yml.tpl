@@ -75,6 +75,8 @@ listen:
     module: ejabberd_http
     request_handlers:
       "/websocket": ejabberd_http_ws
+##      "/oauth": ejabberd_oauth
+      "/api": mod_http_api
     ##  "/pub/archive": mod_http_fileserver
     web_admin: true
     http_bind: true
@@ -93,6 +95,15 @@ listen:
     tls: true
     certfile: "/opt/ejabberd/ssl/host.pem"
     {% endif %}
+
+## commands_admin_access:
+##   - allow:
+##     - user: "admin@localhost"
+## commands:
+##   - add_commands: [user, admin, open]
+# Tokens are valid for a year as default:
+## auth_expire: 31536000
+## oauth_access: all
 
 
 ###   SERVER TO SERVER
@@ -393,6 +404,7 @@ modules:
     {% endif %}
   mod_http_upload_quota:
     max_days: 10
+  mod_admin_extra: {}
 
 ###   ============
 ###   HOST CONFIG
