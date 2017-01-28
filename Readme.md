@@ -1,5 +1,12 @@
 ## ejabberd docker for Atlantis Home Server
 
+### build ejabberd image and push
+
+```bash
+# sh ./build_docker 0.0.1
+$ sh ./build_docker $VERSION
+```
+
 ### ejabberd Major Port
 
 * 5222 : TCP XMPP C2S Port
